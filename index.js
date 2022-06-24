@@ -1,5 +1,16 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const seenNumbers = new Set(); // initialize an empty Set
+  for (const number of array) {
+    const complement = target - number;
+
+    // .has returns true if the Set includes the complement
+    if (seenNumbers.has(complement)) return true;
+
+    // .add adds the number to the Set
+    seenNumbers.add(number);
+  }
+  return false;
 }
 
 /* 
@@ -12,6 +23,7 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
+  function hasTarget checks if two numbers in an array add up to some target number
 */
 
 // You can run `node index.js` to view these console logs
